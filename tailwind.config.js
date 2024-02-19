@@ -9,7 +9,7 @@ export default {
         'cont-dim': 'rgba(249, 249, 251, 1)'
       },
       screens: {
-        lg: '920px'
+        lg: '968px'
         // => @media (min-width: 920px) { ... }
       }
     }
