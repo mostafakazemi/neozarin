@@ -8,6 +8,7 @@
     </HomeSectionWrapper>
     <div class="pt-12 w-full">
       <swiper
+        ref="swiper"
         dir="rtl"
         :slides-per-view="1"
         :breakpoints="{
@@ -89,6 +90,14 @@
         </swiper-slide>
       </swiper>
     </div>
+    <div class="mt-12 flex justify-center gap-2 text-2xl">
+      <button class="bg-white rounded-full p-3" @click="previousSlide">
+        <IconChevron class="-rotate-90" />
+      </button>
+      <button class="bg-white rounded-full p-3" @click="nextSlide">
+        <IconChevron class="rotate-90" />
+      </button>
+    </div>
   </div>
 </template>
 
@@ -101,23 +110,47 @@ import WhyNeozarinSectionItem from '@/components/WhyNeozarinSection/Item/index.v
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/scrollbar'
-import { Autoplay } from 'swiper/modules'
+import { Autoplay, Navigation } from 'swiper/modules'
 import HomeSectionWrapper from '@/components/Home/Section/index.vue'
+import IconChevron from "@/components/Icons/Chevron/index.vue";
 
 export default {
   name: 'WhyNeozarinSection',
 
   components: {
+    IconChevron,
     HomeSectionWrapper,
     WhyNeozarinSectionItem,
     Swiper,
     SwiperSlide
   },
-
+  
   setup() {
     return {
-      modules: [Autoplay]
+      modules: [Autoplay, Navigation],
+      swiperInstance: null, // New property to store the Swiper instance
+    };
+  },
+  
+  mounted() {
+    // Wait until the component is mounted to access the Swiper instance
+    if (this.$refs.swiper) {
+      this.swiperInstance = document.querySelector('.swiper').swiper;
     }
-  }
+  },
+  
+  methods: {
+    previousSlide() {
+      if (this.swiperInstance) {
+        this.swiperInstance.slidePrev();
+      }
+    },
+    
+    nextSlide() {
+      if (this.swiperInstance) {
+        this.swiperInstance.slideNext();
+      }
+    },
+  },
 }
 </script>
