@@ -1,5 +1,5 @@
 <template>
-  <header class="flex border-b">
+  <header class="flex border-b sticky top-0 z-1 bg-white">
     <div class="mx-auto w-full max-w-screen-2xl py-3 px-4 flex justify-between">
       <router-link :to="{ name: 'home' }">
         <img src="@/assets/images/neozarin_logo.svg" alt="نئوزرین" />
