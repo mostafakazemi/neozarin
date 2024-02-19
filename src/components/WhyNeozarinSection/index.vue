@@ -9,7 +9,12 @@
     <div class="pt-12 w-full">
       <swiper
         dir="rtl"
-        :slides-per-view="2.000001"
+        :slides-per-view="1"
+        :breakpoints="{
+          640: {
+            slidesPerView: 2.000001,
+          }
+        }"
         :space-between="24"
         pagination
         :modules="modules"
