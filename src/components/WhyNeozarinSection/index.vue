@@ -16,7 +16,6 @@
           }
         }"
         :space-between="24"
-        pagination
         :modules="modules"
         loop
         :autoplay="{
@@ -101,9 +100,8 @@ import WhyNeozarinSectionItem from '@/components/WhyNeozarinSection/Item/index.v
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
-import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
-import { Pagination, Autoplay } from 'swiper/modules'
+import { Autoplay } from 'swiper/modules'
 import HomeSectionWrapper from '@/components/Home/Section/index.vue'
 
 export default {
@@ -118,7 +116,7 @@ export default {
 
   setup() {
     return {
-      modules: [Pagination, Autoplay]
+      modules: [Autoplay]
     }
   }
 }
